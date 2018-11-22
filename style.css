@@ -1,0 +1,310 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #678aa0;
+  z-index: 9001;
+  -webkit-transform: translateY(-webkit-calc(-100% - 200px));
+      -ms-transform: translateY(calc(-100% - 200px));
+          transform: translateY(calc(-100% - 200px));
+}
+
+.overlay::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: url('blood-drips.png');
+  display: block;
+}
+
+.overlay.is-ended {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: -webkit-transform 1.5s cubic-bezier(.82,.1,.69,.87);
+  transition: -webkit-transform 1.5s cubic-bezier(.82,.1,.69,.87);
+  -o-transition: transform 1.5s cubic-bezier(.82,.1,.69,.87);
+  transition: transform 1.5s cubic-bezier(.82,.1,.69,.87);
+  transition: transform 1.5s cubic-bezier(.82,.1,.69,.87), -webkit-transform 1.5s cubic-bezier(.82,.1,.69,.87);
+}
+
+.coming-soon {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  font-size: 12px;
+  color: #313136;
+}
+
+.disc {
+  font-family: Helvetica;
+  font-size: 68px;
+  font-weight: 100;
+  background-color: #678aa0;
+  padding: 36px 32px;
+  letter-spacing: -4px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  color: #fff;
+  opacity: 1;
+}
+
+.string {
+  position: absolute;
+  -webkit-transition: height 0.5s linear, -webkit-transform 2s linear;
+  transition: height 0.5s linear, -webkit-transform 2s linear;
+  -o-transition: height 0.5s linear, transform 2s linear;
+  transition: height 0.5s linear, transform 2s linear;
+  transition: height 0.5s linear, transform 2s linear, -webkit-transform 2s linear;
+  -webkit-transform-origin: 0%;
+      -ms-transform-origin: 0%;
+          transform-origin: 0%;
+}
+
+.string::after {
+  position:absolute;
+  background-color: #678aa0;
+  height: 2px;
+  width: 2px;
+  bottom: 0;
+  content:'';
+}
+
+.string.stretch::after {
+  -webkit-transition: height 0.3s linear;
+  -o-transition: height 0.3s linear;
+  transition: height 0.3s linear;
+  height: 40px;
+}
+
+.string.shoot::after {
+  -webkit-transition: bottom 3s linear;
+  -o-transition: bottom 3s linear;
+  transition: bottom 3s linear;
+  bottom: 100vw;
+}
+
+.stage {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.track {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 25%;
+  width: 50%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ship {
+  width: 40px;
+  opacity: 0;
+  -webkit-transition: opacity 1s linear, max-height 0.5s linear;
+  -o-transition: opacity 1s linear, max-height 0.5s linear;
+  transition: opacity 1s linear, max-height 0.5s linear;
+  position: absolute;
+  left: 0;
+  bottom: 5%;
+  margin: 0 20px;
+  max-height: 50px;
+}
+
+.ship.is-dead {
+  max-height: 0px;
+}
+
+.laser {
+  width: 3px;
+  height: 10px;
+  -webkit-transition: bottom 1s linear;
+  -o-transition: bottom 1s linear;
+  transition: bottom 1s linear;
+  background-color: #7C1520;
+}
+
+.laser.is-active {
+  bottom: 5%;
+  position: absolute;
+}
+
+.clip .laser {
+  margin: 0 5px;
+  display: inline-block;
+  -webkit-transition: opacity 2s ease;
+  -o-transition: opacity 2s ease;
+  transition: opacity 2s ease;
+}
+
+.clip {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  opacity: 1;
+  -webkit-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+  transition: opacity 1s ease;
+}
+
+.wrap {
+  position: absolute;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrap .disc {
+  -webkit-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+          transform: scale(0.5);
+}
+
+.wrap .disc.is-shrunk {
+  -webkit-transition: -webkit-transform 0.5s linear;
+  transition: -webkit-transform 0.5s linear;
+  -o-transition: transform 0.5s linear;
+  transition: transform 0.5s linear;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+  -webkit-transform: scale(0.01);
+      -ms-transform: scale(0.01);
+          transform: scale(0.01);
+}
+
+.disc.is-massive {
+  -webkit-transform: scale(20);
+      -ms-transform: scale(20);
+          transform: scale(20);
+  color: #678aa0;
+}
+
+.is-shown {
+  opacity: 1;
+}
+
+.modal {
+  background-image: url('modal-transparent.png');
+  margin-left: 20px;
+  width: 375px;
+  height: 150px;
+}
+
+.modal.is-ended {
+  position: relative;
+}
+
+.modal.is-ended::before {
+  font-family: Helvetica;
+  font-size: 68px;
+  font-weight: 100;
+  background-color: #678aa0;
+  padding: 36px 32px;
+  letter-spacing: -4px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  color: #fff;
+  opacity: 1;
+  position: absolute;
+  left: -170px;
+  top: 0px;
+  height: 80px;
+  width: 80px;
+  content: 'AB';
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+
+}
+
+.is-faded {
+  -webkit-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+
+.is-small {
+  -webkit-transition: left 2s ease, -webkit-transform 2s ease;
+  transition: left 2s ease, -webkit-transform 2s ease;
+  -o-transition: transform 2s ease, left 2s ease;
+  transition: transform 2s ease, left 2s ease;
+  transition: transform 2s ease, left 2s ease, -webkit-transform 2s ease;
+  -webkit-transform: scale(0.5) translateY(-200%);
+      -ms-transform: scale(0.5) translateY(-200%);
+          transform: scale(0.5) translateY(-200%);
+}
+
+
+.is-moving {
+  position: absolute;
+  -webkit-animation-name: x;
+          animation-name: x;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  right: auto;
+}
+
+.laser.is-firing {
+  -webkit-transition: bottom 1s linear;
+  -o-transition: bottom 1s linear;
+  transition: bottom 1s linear;
+  bottom: 100%;
+}
+
+
+@-webkit-keyframes x {
+  0% { left: 0%; }
+  100% { left: -webkit-calc(100% - 120px); left: calc(100% - 120px); }
+}
+
+
+@keyframes x {
+  0% { left: 0%; }
+  100% { left: -webkit-calc(100% - 120px); left: calc(100% - 120px); }
+}
